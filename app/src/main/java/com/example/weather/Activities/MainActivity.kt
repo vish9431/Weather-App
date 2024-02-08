@@ -28,6 +28,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -38,6 +39,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.weather.ApiKey
 import com.example.weather.Models.WeatherModel
 import com.example.weather.R
 import com.example.weather.Utilites.ApiUtilities
@@ -66,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var fusedLocationProvider: FusedLocationProviderClient
     private val LOCATION_REQUEST_CODE = 101
 
-    private val apiKey="75cade1f427c926ebf694627c3a265b8"
+    private val apiKey=ApiKey.API_KEY
     private var mInterstitialAd: InterstitialAd?=null
 
     lateinit var database:Locationdatabase
@@ -74,6 +76,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        getWindow().setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar()?.hide();
 
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main2)
 
@@ -105,12 +111,7 @@ class MainActivity : AppCompatActivity() {
         binding.currentLocation.setOnClickListener{
             getCurrentLocation()
         }
-        binding.addLocation.setOnClickListener{
-            addloc()
-        }
-        binding.seeFav.setOnClickListener {
-            seefavloc()
-        }
+
 
         database= Room.databaseBuilder(applicationContext,
         Locationdatabase::class.java,

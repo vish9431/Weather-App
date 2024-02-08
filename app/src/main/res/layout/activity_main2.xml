@@ -53,31 +53,7 @@
 
             </ImageView>
 
-            <ImageView
-                android:id="@+id/add_location"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:clickable="true"
-                android:focusable="true"
-                app:tint="@color/white"
-                android:background="@color/cardview_dark_background"
-                android:src="@drawable/baseline_add_location_24">
-            </ImageView>
 
-            <ImageView
-                android:id="@+id/see_fav"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:layout_weight="0.1"
-                android:background="@color/cardview_dark_background"
-                android:clickable="true"
-                android:focusable="true"
-                app:tint="@color/white"
-                android:src="@drawable/baseline_place_24">
-            </ImageView>
 
 
         </LinearLayout>
